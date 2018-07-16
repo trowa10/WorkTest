@@ -22,6 +22,43 @@
     <Content Remove="ClientApp\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="ClientApp\app\components\fetchdata\ingredientInventory.component.ts" />
+    <None Remove="ClientApp\app\components\fetchdata\prodingredientunit.component.ts" />
+    <None Remove="ClientApp\app\Model\IIngredientInventory.ts" />
+    <None Remove="ClientApp\app\Model\IProdIngredientUnit.ts" />
+    <None Remove="ClientApp\app\services\ingredientinventory.service.ts" />
+    <None Remove="ClientApp\app\services\prodingredientunit.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\components\fetchdata\ingredientinventory.component.ts">
+      <DependentUpon>ingredientinventory.component.html</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\app\components\fetchdata\prodingredientunit.component.ts">
+      <DependentUpon>prodingredientunit.component.html</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\app\Model\IIngredientInventory.ts" />
+    <TypeScriptCompile Include="ClientApp\app\Model\IProdIngredientUnit.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\ingredientinventory.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\prodingredientunit.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ClientApp\app\components\fetchdata\fetchdata.component.ts">
+      <DependentUpon>fetchdata.component.html</DependentUpon>
+    </None>
+    <None Update="ClientApp\app\components\home\home.component.ts">
+      <DependentUpon>home.component.html</DependentUpon>
+    </None>
+    <None Update="ClientApp\app\components\navmenu\navmenu.component.css">
+      <DependentUpon>navmenu.component.html</DependentUpon>
+    </None>
+    <None Update="ClientApp\app\components\navmenu\navmenu.component.ts">
+      <DependentUpon>navmenu.component.html</DependentUpon>
+    </None>
+  </ItemGroup>
+
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">

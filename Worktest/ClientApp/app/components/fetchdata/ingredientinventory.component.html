@@ -1,0 +1,23 @@
+﻿<h1>Ingredients Inventory</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+<p *ngIf="!IngredientInventories"><em>Loading...</em></p>
+
+<table class='table' *ngIf="IngredientInventories">
+    <thead>
+        <tr>
+            <th>ID</th>          
+            <th>Ingredient Name</th>
+            <th>Total Units</th>
+        </tr>
+    </thead>
+    <tbody>
+               
+        <tr *ngFor="let ingredient of IngredientInventories">
+           
+            <td>{{ ingredient.id }}</td>
+            <td>{{ ingredient.ingredientName }}</td>
+            <td>{{ ingredient.totalUnit }}</td>
+        </tr>
+    </tbody>
+</table>

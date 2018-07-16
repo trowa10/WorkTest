@@ -5,8 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Worktest.Business;
+using Worktest.Models;
 
 namespace Worktest
 {
@@ -23,6 +26,16 @@ namespace Worktest
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+         //   var connection = "Server=MNL02S2021061D2;Database=CircleCoffee;User Id=Melpedes; Password=200410651Starck;Trusted_Connection=True;";
+         //  services.AddDbContext<CircleCoffeeContext>(options => options.UseSqlServer(connection));
+            
+        
+     
+
+            services.AddTransient<IProductIngredientUnit, ProductIngredientUnit>();
+            services.AddTransient<IIngredientInventory, IngredientInventory>();
+            services.AddTransient<IProduct, Product>();
+        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

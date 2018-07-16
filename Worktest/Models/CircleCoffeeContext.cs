@@ -6,15 +6,15 @@ namespace Worktest.Models
 {
     public partial class CircleCoffeeContext : DbContext
     {
-        string _strDBConnection = "Server=DESKTOP-H4M9MPL\\SQLEXPRESS;Database=CircleCoffee;User Id = sa; Password=200410651;Trusted_Connection=True;";
-        public CircleCoffeeContext()
-        {
-        }
+        string _strDBConnection = "Server=MNL02S2021061D2;Database=CircleCoffee;User Id=Melpedes; Password=200410651Starck;Trusted_Connection=True;";
+       // public CircleCoffeeContext()
+        //{
+        //}
 
-        public CircleCoffeeContext(DbContextOptions<CircleCoffeeContext> options)
-            : base(options)
-        {
-        }
+        //public CircleCoffeeContext(DbContextOptions<CircleCoffeeContext> options)
+        //    : base(options)
+        //{
+        //}
 
         public virtual DbSet<TblIngredientInventory> TblIngredientInventory { get; set; }
         public virtual DbSet<TblProduct> TblProduct { get; set; }
