@@ -5,6 +5,7 @@ import { IProdIngredientUnit } from '../../Model/IProdIngredientUnit';
 
 
 @Component({
+    moduleId: module.id.toString(),
     selector: 'prodIngredientUnit',
     templateUrl: './prodingredientunit.component.html'
 })
