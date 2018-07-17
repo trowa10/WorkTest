@@ -1,7 +1,10 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, RequestOptions } from '@angular/http';
+import { IIngredientInventory, IIngredientUnit } from '../../Model/IIngredientInventory';
+
 import { IngredientInventoryService } from '../../services/ingredientinventory.service';
-import { IIngredientInventory } from '../../Model/IIngredientInventory';
+import { IngredientService } from '../../services/ingredient.service';
+
 
 
 @Component({
@@ -11,14 +14,54 @@ import { IIngredientInventory } from '../../Model/IIngredientInventory';
 })
 export class IngredientInventoryComponent implements OnInit {
 
-    public IngredientInventories: IIngredientInventory[];
+    public ingredientInventories: IIngredientInventory[];
 
-    constructor(private _ingredientInventoryService: IngredientInventoryService) {  }
+    public showAddFields: boolean = false;
+    public ingredientPost: IIngredientUnit = {
+        ingredientName: "",
+        unit: 0
+    };
 
-    ngOnInit() {        
+
+
+    constructor(private readonly _ingredientInventoryService: IngredientInventoryService,
+        private readonly _ingredientService: IngredientService) {
+  
+    }
+
+    ngOnInit() {
+
         this._ingredientInventoryService.GetIngredientInventory()
             .subscribe(result => {
-                this.IngredientInventories = result.json() as IIngredientInventory[];
-        }, error => console.error(error));
+                this.ingredientInventories = result.json() as IIngredientInventory[];
+            }, error => console.error(error));
+
+
     }
+
+    ShowAddField() {
+        this.showAddFields = true;
+    }
+
+    CancelField() {
+        this.showAddFields = false;
+    }
+
+    Submit() {      
+        this._ingredientInventoryService.SaveIngredientUnit(this.ingredientPost)
+            .subscribe(result => {                
+                let x = result.json() as boolean;
+                if (x) {
+                    this.showAddFields = false;
+                    this.clear();
+                }
+            },
+            error => console.error(error));
+    }
+
+    clear() {
+        this.ingredientPost.ingredientName = "";
+        this.ingredientPost.unit = 0;
+    }
+
 }

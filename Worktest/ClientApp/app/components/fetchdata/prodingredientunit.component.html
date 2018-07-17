@@ -1,12 +1,11 @@
 ﻿<h1>Product Ingredients</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+
 <p *ngIf="!prodIngredients"><em>Loading...</em></p>
 
 <table class='table' *ngIf="prodIngredients">
     <thead>
-        <tr>
-            <th>Actions</th>
+        <tr>          
             <th>ID</th>
             <th>Product Name</th>
             <th>Ingredient Name</th>
@@ -15,12 +14,7 @@
     </thead>
     <tbody>
                
-        <tr *ngFor="let ingredient of prodIngredients">
-            <td>
-                <a class="add" title="" data-toggle="tooltip"><i class="glyphicon glyphicon-plus"> </i></a>
-                <a class="edit" title="" data-toggle="tooltip"><i class="glyphicon glyphicon-pencil"> </i></a>
-                <a class="delete" title="" data-toggle="tooltip" ><i class="glyphicon glyphicon-trash"> </i></a>
-            </td>            
+        <tr *ngFor="let ingredient of prodIngredients">           
             <td>{{ ingredient.id }}</td>
             <td>{{ ingredient.productName }}</td>
             <td>{{ ingredient.ingredientName }}</td>

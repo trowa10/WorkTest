@@ -11,6 +11,7 @@
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,8 +28,10 @@
     <None Remove="ClientApp\app\components\fetchdata\prodingredientunit.component.ts" />
     <None Remove="ClientApp\app\Model\IIngredientInventory.ts" />
     <None Remove="ClientApp\app\Model\IProdIngredientUnit.ts" />
+    <None Remove="ClientApp\app\services\ingredient.service.ts" />
     <None Remove="ClientApp\app\services\ingredientinventory.service.ts" />
     <None Remove="ClientApp\app\services\prodingredientunit.service.ts" />
+    <None Remove="ClientApp\app\services\product.servie.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,6 +45,8 @@
     <TypeScriptCompile Include="ClientApp\app\Model\IProdIngredientUnit.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\ingredientinventory.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\prodingredientunit.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\ingredient.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\product.servie.ts" />
   </ItemGroup>
 
   <ItemGroup>

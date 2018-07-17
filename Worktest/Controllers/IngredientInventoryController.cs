@@ -1,16 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Worktest.Business;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Worktest.Interface;
 using Worktest.Models;
 
 namespace Worktest.Controllers
 {
-    [Route("api/[controller]")]
+
     public class IngredientInventoryController : Controller
-    {    
+    {
 
         private readonly IIngredientInventory _ingredientInventoryRepo;
 
@@ -20,11 +18,19 @@ namespace Worktest.Controllers
         }
 
 
-        [HttpGet("[action]")]
+        [HttpGet("api/ingredient-inventory")]
         public async Task<IEnumerable<IngredientInventoryModel>> GetIngredientInventory()
         {
             var data = await this._ingredientInventoryRepo.GetAllIngredientInventory();
             return data;
+        }
+
+
+
+        [HttpPost("api/save-ingredient")]
+        public async Task<bool> SaveIngredientUnit([FromBody] IngredientTotalUnitModel model)
+        {
+            return await this._ingredientInventoryRepo.SaveIngredientInventory(model);
         }
 
 

@@ -1,6 +1,10 @@
 ﻿export interface IIngredientInventory {
-    Id: number,
-    ProductName: string,
+    Id: number,   
     IngredientName: string,
+    unit: number
+}
+
+export interface IIngredientUnit {
+    ingredientName: string,
     unit: number
 }

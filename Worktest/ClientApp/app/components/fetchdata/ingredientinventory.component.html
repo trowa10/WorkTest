@@ -1,23 +1,41 @@
 ﻿<h1>Ingredients Inventory</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
-<p *ngIf="!IngredientInventories"><em>Loading...</em></p>
 
-<table class='table' *ngIf="IngredientInventories">
-    <thead>
-        <tr>
-            <th>ID</th>          
-            <th>Ingredient Name</th>
-            <th>Total Units</th>
-        </tr>
-    </thead>
-    <tbody>
-               
-        <tr *ngFor="let ingredient of IngredientInventories">
-           
-            <td>{{ ingredient.id }}</td>
-            <td>{{ ingredient.ingredientName }}</td>
-            <td>{{ ingredient.totalUnit }}</td>
-        </tr>
-    </tbody>
-</table>
+<p *ngIf="!ingredientInventories"><em>Loading...</em></p>
+
+
+
+<form>
+    <div>
+        <button class="btn btn-default" (click)="ShowAddField();">Add</button>
+    </div>
+    <table class='table' *ngIf="ingredientInventories">
+        <thead>
+            <tr>
+                <th>Actions</th>
+                <th>Ingredient Name</th>
+                <th>Total Units</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="showAddFields">
+                <td>
+                    <a (click)="Submit();"><i class="glyphicon glyphicon-ok"> </i></a>
+                    <a (click)="CancelField();"><i class="glyphicon glyphicon-remove"> </i></a>
+                </td>
+                <td><input type="text" class="form-control" id="txtIngredientName" name="txtIngredientName" [(ngModel)]="ingredientPost.ingredientName"></td>
+                <td><input type="number" class="form-control" id="txtTotalUnit" name="txtTotalUnit" [(ngModel)]="ingredientPost.unit"></td>
+
+            </tr>
+
+            <tr *ngFor="let ingredient of ingredientInventories">
+                <td>
+                    <a><i class="glyphicon glyphicon-pencil"> </i></a>
+                    <a><i class="glyphicon glyphicon-trash"> </i></a>
+                </td>
+                <td><span>{{ ingredient.ingredientName }}</span></td>
+                <td><span>{{ ingredient.totalUnit }}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
